@@ -23,15 +23,17 @@ let arrayNumeriCasuali = [];
 
 let arrayNumeriUtente = [];
 
+let array_numeri_indovinati = [];
+
+let datiMemoria;
+
 let h1 = document.getElementById("h1");
 
-setTimeout (puliziaDisplay , 4000);
+setTimeout(puliziaDisplay, 4000);
 
-setTimeout (secondaFase , 4500);
+setTimeout(secondaFase, 4500);
 
 displayNumeri();
-
-console.log(arrayNumeriUtente);
 
 /************
  * FUNZIONI *
@@ -53,19 +55,57 @@ function displayNumeri() {
     h1.innerHTML = `Ricorda questi numeri: ${arrayNumeriCasuali}`;
 }
 
-function puliziaDisplay () {
-     h1.innerHTML = ``;
+function puliziaDisplay() {
+    h1.innerHTML = ``;
 }
 
 
-function secondaFase () { 
+function secondaFase() {
 
-    for (let i = 0; i < 5 ; i++) {
-        let datiMemoria = parseInt(prompt("Quali numeri ti ricordi?"));
+    let flag = false;
+
+    for (let i = 0; i < 5; i++) {
+        datiMemoria = parseInt(prompt("Quali numeri ti ricordi?"));
+
+        arrayNumeriUtente.push(datiMemoria);
+
     }
 
-    arrayNumeriUtente.push(datiMemoria);
+    console.log(datiMemoria);
+    console.log(arrayNumeriUtente);
 
-    return datiMemoria
+    let y = 0;
+
+    while (y < arrayNumeriUtente.length) {
+
+        if (arrayNumeriCasuali == arrayNumeriUtente[y]) {
+            console.log("indovinato")
+
+            flag = true;
+            break
+        } else {
+            console.log("non hai indovinato")
+        }
+
+        y++
+    }
+
 }
 
+
+
+// while (i < listaInvitati.length) {
+
+//     if (listaInvitati[i] == nuovoInvitato) {
+
+
+//     }
+
+//     i++
+// }
+
+// if (flag) {
+//     console.log("divertiti");
+// } else {
+//     console.log("Non sei invitato");
+// }

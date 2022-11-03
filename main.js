@@ -76,36 +76,24 @@ function secondaFase() {
 
     let y = 0;
 
-    while (y < arrayNumeriUtente.length) {
+    while (y < arrayNumeriUtente) {
 
-        if (arrayNumeriCasuali == arrayNumeriUtente[y]) {
+        if (arrayNumeriUtente.includes(arrayNumeriCasuali)) {
             console.log("indovinato")
-
             flag = true;
             break
-        } else {
-            console.log("non hai indovinato")
-        }
+        } 
 
         y++
     }
 
+    if (flag) {
+     array_numeri_indovinati.push(arrayNumeriUtente);
+    } else {
+        console.log("non hai indovinato");
+    }
+
+    console.log(array_numeri_indovinati);
 }
 
 
-
-// while (i < listaInvitati.length) {
-
-//     if (listaInvitati[i] == nuovoInvitato) {
-
-
-//     }
-
-//     i++
-// }
-
-// if (flag) {
-//     console.log("divertiti");
-// } else {
-//     console.log("Non sei invitato");
-// }
